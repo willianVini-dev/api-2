@@ -1,3 +1,5 @@
+import { Users } from "../entities/User";
+
 interface ICreatUserDTO{
   name:string;
   password:string;
@@ -7,6 +9,7 @@ interface ICreatUserDTO{
 
 interface IUsersRepository{
   create(data:ICreatUserDTO):Promise<void>
+  listAll():Promise<Users[]>
 }
 
 export { IUsersRepository,ICreatUserDTO}
