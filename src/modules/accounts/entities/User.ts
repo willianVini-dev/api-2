@@ -16,19 +16,16 @@ class Users{
   name:string;
 
   @Column()
-  username:string;
-
-  @Column()
   email:string;
 
   @Column()
   password:string;
 
   @Column()
-  driver_license:string;
+  drive_license:string;
 
   @Column()
-  idAdmin:boolean;
+  admin:boolean = false;
 
   @CreateDateColumn()
   created_at:Date;
