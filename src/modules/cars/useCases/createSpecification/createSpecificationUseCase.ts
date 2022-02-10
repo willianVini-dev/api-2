@@ -1,6 +1,6 @@
 import { ISpecificationRepository } from "../../repositories/ISpecificationRepository";
 import { inject, injectable } from 'tsyringe';
-
+import { AppError } from '../../../../errors/appError';
 
 interface IRequest{
   name:string;
@@ -17,7 +17,7 @@ class CreateSpecificationUseCase{
     const nameExists = await this.specificationRepository.findByName(name);
 
     if(nameExists){
-      throw new Error("Specification Exists!")
+      throw new AppError("Specification Exists!")
     }
     
     await this.specificationRepository.create({name, description})
