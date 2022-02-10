@@ -5,6 +5,8 @@ interface ICreatUserDTO{
   password:string;
   email:string;
   drive_license:string;
+  id?:string;
+  avatar?:string;
 }
 
 interface IUsersRepository{
