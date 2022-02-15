@@ -1,4 +1,4 @@
-import { Users } from "../entities/User";
+import { Users } from "../infra/typeorm/entities/User";
 
 interface ICreatUserDTO{
   name:string;
