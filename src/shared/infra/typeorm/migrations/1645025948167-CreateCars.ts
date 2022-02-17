@@ -38,7 +38,7 @@ export class CreateCars1645025948167 implements MigrationInterface {
 								type: "numeric"
 							},
 							{
-								name: "branch",
+								name: "brand",
 								type: "varchar"
 							},
 							{
