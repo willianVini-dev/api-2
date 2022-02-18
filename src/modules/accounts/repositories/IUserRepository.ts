@@ -14,6 +14,7 @@ interface IUsersRepository{
   listAll():Promise<Users[]>
   findByEmail(email:string):Promise<Users>
   findById(id:string):Promise<Users>
+  createAdmin(password:string):Promise<void>
 }
 
 export { IUsersRepository,ICreatUserDTO}

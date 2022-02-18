@@ -37,6 +37,18 @@ class UserRepository implements IUsersRepository{
     return user;
   }
 
+  async createAdmin(password:string):Promise<void>{
+
+    const user = this.repository.create({
+      name:"admin",
+      password,
+      email: "admin@admin",
+      drive_license: "1212121",
+      admin: true
+    })
+    await this.repository.save(user)
+  }
+
 }
 
 export {UserRepository}
