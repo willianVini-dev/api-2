@@ -1,13 +1,13 @@
 import { InMemoryCarsRepository } from "../../repositories/in-memory/InMemoryCarsRepository";
-import { ListCarsUseCase } from "./listCarsUseCase";
+import { ListAvailableCarsUseCase } from "./listAvailableCarsUseCase";
 
-let listCarsUseCase:ListCarsUseCase;
+let listCarsUseCase:ListAvailableCarsUseCase;
 let inMemorycarsRepository:InMemoryCarsRepository
 describe("List cars", ()=>{
 
   beforeEach(()=>{
     inMemorycarsRepository = new InMemoryCarsRepository()
-    listCarsUseCase = new ListCarsUseCase(inMemorycarsRepository);
+    listCarsUseCase = new ListAvailableCarsUseCase(inMemorycarsRepository);
   });
 
   it("should be able to list all available cars", async ()=>{
@@ -25,7 +25,6 @@ describe("List cars", ()=>{
     const cars = await listCarsUseCase.execute({})
     expect(cars).toEqual([car])
   })
-
   it("should be able to list all avaliable cars by brand", async ()=>{
 
     const car = await inMemorycarsRepository.create({

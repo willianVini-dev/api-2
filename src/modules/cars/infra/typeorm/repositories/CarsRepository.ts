@@ -36,13 +36,13 @@ class CarsRepository implements ICarsRepository{
   async findAvailable(brand?:string, category_id?:string,name?:string):Promise<Cars[]>{
 
     const carsQuery = await this.repository
-      createQueryBuilder("cars")
-      .where("available = :available", {available:true})
+    .createQueryBuilder("cars")
+    .where("available = :available", {available:true})
 
       if(brand){
         carsQuery.andWhere("cars.brand = :brand", {brand})
       }
-
+      
       if(name){
         carsQuery.andWhere("cars.name = :name", {name})
       }
