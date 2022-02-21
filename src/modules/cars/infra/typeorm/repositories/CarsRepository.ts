@@ -51,7 +51,8 @@ class CarsRepository implements ICarsRepository{
         carsQuery.andWhere("cars.category_id = :category_id", {category_id})
       }
 
-      await carsQuery.getMany()
+      const cars = await carsQuery.getMany()
+      return cars
   }
 
 }
