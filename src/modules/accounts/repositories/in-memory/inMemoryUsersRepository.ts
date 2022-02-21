@@ -21,6 +21,7 @@ class InMemoryUsersRepository implements IUsersRepository{
     return this.users.find( (user) => user.id === id )
   }
 
+  async createAdmin(password:string):Promise<void>{}
 }
 
 export {InMemoryUsersRepository}

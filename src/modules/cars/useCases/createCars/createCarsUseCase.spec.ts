@@ -1,15 +1,15 @@
-import { inMemoryCarsRepository } from "../../repositories/in-memory/inMemoryCarsRepository";
+import { InMemoryCarsRepository } from "../../repositories/in-memory/InMemoryCarsRepository";
 import { CreateCarsUseCase } from "./createCarsUseCase"
 import { AppError } from '../../../../shared/errors/appError';
 
 let createCarsUseCase:CreateCarsUseCase;
-let InMemorycarsRepository:inMemoryCarsRepository;
+let inMemorycarsRepository:InMemoryCarsRepository;
 
 describe("Create cars", ()=>{
 
   beforeEach(()=>{
-    InMemorycarsRepository = new inMemoryCarsRepository()
-    createCarsUseCase = new CreateCarsUseCase(InMemorycarsRepository);
+    inMemorycarsRepository = new InMemoryCarsRepository()
+    createCarsUseCase = new CreateCarsUseCase(inMemorycarsRepository);
   });
 
   it("Should be able to create a new car", async ()=>{
