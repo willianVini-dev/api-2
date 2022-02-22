@@ -43,6 +43,9 @@ class InMemoryCarsRepository implements ICarsRepository{
     return this.cars.find( car => car.license_plate === license_plate )
   }
 
+  async findById(car_id:string):Promise<Cars>{
+    return this.cars.find(car => car.id === car_id)
+  }
 
 }
 export {InMemoryCarsRepository}

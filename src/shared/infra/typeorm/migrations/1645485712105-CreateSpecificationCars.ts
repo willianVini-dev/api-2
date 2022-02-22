@@ -6,7 +6,7 @@ export class CreateSpecificationCars1645485712105 implements MigrationInterface 
     public async up(queryRunner: QueryRunner): Promise<void> {
 			await queryRunner.createTable(
 				new Table({
-					name: "specificiation_cars",
+					name: "specification_cars",
 					columns:[
 						{
 							name: "car_id",
@@ -31,9 +31,7 @@ export class CreateSpecificationCars1645485712105 implements MigrationInterface 
 					name: "FKSpecificationCar",
 					referencedTableName: "specifications",
 					referencedColumnNames: ["id"],
-					columnNames:["specification_id"],
-					onDelete: "SET NULL",
-					onUpdate: "SET NULL"
+					columnNames:["specification_id"]
 				})
 			);
 			await queryRunner.createForeignKey(
@@ -42,16 +40,14 @@ export class CreateSpecificationCars1645485712105 implements MigrationInterface 
 					name: "FKCarSpecification",
 					referencedTableName: "cars",
 					referencedColumnNames: ["id"],
-					columnNames:["car_id"],
-					onDelete: "SET NULL",
-					onUpdate: "SET NULL"
+					columnNames:["car_id"]
 				})
 			);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-			await queryRunner.dropForeignKey("specifications_cars", "FKCarSpecification")
-			await queryRunner.dropForeignKey("specifications_cars", "FKSpecificationCar")
+			await queryRunner.dropForeignKey("specification_cars", "FKCarSpecification")
+			await queryRunner.dropForeignKey("specification_cars", "FKSpecificationCar")
 			await queryRunner.dropTable("specification_cars")
     }
 
