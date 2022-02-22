@@ -1,4 +1,5 @@
 import { Cars } from "../infra/typeorm/entities/Cars";
+import { Specification } from "../infra/typeorm/entities/Specification";
 
 interface ICreateCars{
   name :string;
@@ -8,6 +9,8 @@ interface ICreateCars{
   fine_amount:number;
   brand: string;
   category_id:string;
+  specification?:Specification[];
+  id?:string;
 }
 
 interface ICarsRepository{
