@@ -1,5 +1,6 @@
 import "reflect-metadata"
 import { container } from "tsyringe"
+import "./providers/index"
 import {ICategoriesRepository} from "../../modules/cars/repositories/ICategoriesRepository"
 import {CategoriesRepository} from "../../modules/cars/infra/typeorm/repositories/CategoriesRepository"
 import { ISpecificationRepository } from "../../modules/cars/repositories/ISpecificationRepository"
@@ -10,6 +11,8 @@ import { ICarsRepository } from "../../modules/cars/repositories/ICarsRepository
 import { CarsRepository } from "../../modules/cars/infra/typeorm/repositories/CarsRepository"
 import { ICarsImageRepository } from "../../modules/cars/repositories/ICarsImageRepository"
 import { CarsImageRepository } from "../../modules/cars/infra/typeorm/repositories/CarsImageRepository"
+import { IRentalsRepository } from "../../modules/rentals/repositories/IRentalsRepositorys"
+import { RentalRepository } from "../../modules/rentals/infra/typeorm/repositories/RentalRepository"
 // interface = ICategoriesRepository
 // Nome pro registro
 container.registerSingleton<ICategoriesRepository>(
@@ -36,4 +39,9 @@ container.registerSingleton<ICarsRepository>(
 container.registerSingleton<ICarsImageRepository>(
   "CarsImageRepository",
   CarsImageRepository
+)
+
+container.registerSingleton<IRentalsRepository>(
+  "RentalRepository",
+  RentalRepository
 )
