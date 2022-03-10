@@ -1,2 +1,15 @@
-import {createConnection} from "typeorm"
-createConnection().then().catch(()=>{console.log('error')}); 
+import {Connection,createConnection,getConnectionOptions} from "typeorm"
+
+export default async (host = "database"):Promise<Connection> =>{
+  const defaultOptions = await getConnectionOptions();
+  return createConnection(
+    Object.assign(defaultOptions,{
+      host:process.env.NODE_ENV === "test" ? "localhost": host,
+      database: process.env.NODE_ENV === "test" ? "rental_test": defaultOptions.database
+    })
+  )
+}
+
+
+
+//createConnection().then().catch(()=>{console.log('error')}); 
