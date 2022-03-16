@@ -10,6 +10,18 @@ class CarsRepository implements ICarsRepository{
   constructor(){
     this.repository = getRepository(Cars)
   }
+  async updateAvailable(id: string, available:boolean): Promise<void> {
+    
+    // Update cars set available = "true" where id = :id
+    await this.repository
+    .createQueryBuilder()
+    .update()
+    .set({available})
+    .where("id = :id")
+    .setParameters({id})
+    .execute()
+
+  }
   
   async create({name, description, daily_rate, license_plate, fine_amount, brand, category_id, specification,id}: ICreateCars): Promise<Cars> {
     

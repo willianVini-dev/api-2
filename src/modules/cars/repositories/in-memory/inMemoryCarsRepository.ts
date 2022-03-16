@@ -2,9 +2,14 @@ import { Cars } from "../../infra/typeorm/entities/Cars";
 import { ICarsRepository, ICreateCars } from "../ICarsRepository";
 
 class InMemoryCarsRepository implements ICarsRepository{
+
   
   cars:Cars[] = [];
-
+  
+  async updateAvailable(id: string, available: boolean): Promise<void> {
+    const updateCar = this.cars.findIndex( car => car.id === id )
+    this.cars[updateCar].available = available;
+  }
   async findAvailable(brand?:string, category_id?:string, name?:string): Promise<Cars[]> {
     const cars = this.cars
       .filter(car => {

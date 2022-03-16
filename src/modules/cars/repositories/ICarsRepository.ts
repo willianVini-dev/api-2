@@ -18,6 +18,7 @@ interface ICarsRepository{
   findByLicensesPlate(license_plate:string):Promise<Cars>
   findAvailable(brand?:string, category_id?:string,name?:string):Promise<Cars[]>
   findById(car_id:string):Promise<Cars>
+  updateAvailable(id:string,available:boolean):Promise<void>
 }
 
 export {ICreateCars, ICarsRepository}
