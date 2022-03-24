@@ -1,5 +1,7 @@
-import { Column, CreateDateColumn, Entity, NamingStrategyInterface, PrimaryColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, ManyToOne, NamingStrategyInterface, PrimaryColumn, UpdateDateColumn, JoinColumn } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
+import { Users } from '../../../../accounts/infra/typeorm/entities/User';
+import { Cars } from '../../../../cars/infra/typeorm/entities/Cars';
 
 @Entity("rentals")
 class Rental{
@@ -7,8 +9,16 @@ class Rental{
   @PrimaryColumn()
   id:string;
 
+  @ManyToOne(()=> Cars)
+  @JoinColumn({name: "car_id"})
+  car:Cars
+
   @Column()
   car_id:string;
+
+  @ManyToOne(()=> Users)
+  @JoinColumn({name: "user_id"})
+  user:Users
 
   @Column()
   user_id:string;

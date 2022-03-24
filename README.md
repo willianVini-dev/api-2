@@ -80,4 +80,12 @@
    - Ao realizar a devolução devera ser calculado o total do aluguel
    - Caso o horario de devolução seja superior a previsto na entrega devera ser cobrado multa proporcional aos dias de atraso 
    - Caso haja multa devera ser somado ao total do aluguel
+   - O usuario deve estar logado na aplicação
    
+# Listagem de alugueis para usuario
+  
+  **requisitos funcionais RF**
+   - Deve ser possivel realizar a busca de todos os alugueis para o usuario
+
+   **regra de negocio RN**
+    - O usuario deve estar logado na aplicação

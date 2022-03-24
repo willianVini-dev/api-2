@@ -1,11 +1,11 @@
 {
   "openapi": "3.0.0",
   "info":{
-    "title": "API-02 Documentation",
+    "title": "Rental Cars Documentation",
     "description":"This is an api rent",
     "version": "1.0.0",
     "contact":{
-      "email": "willianvini-dev@outlook.com"
+      "email": "willianVinicius-dev@outlook.com"
     }
   },
   "paths":{
@@ -13,7 +13,10 @@
       "post":{
         "tags":["Category"],
         "summary": "Create a category",
-        "descrption": "Create a new category",
+        "description": "Create a new category",
+        "security":[
+          {"bearerAuth": []}
+        ],
         "requestBody": {
           "content":{
             "application/json":{
@@ -101,7 +104,7 @@
       }
 
     },
-    "specifications":{
+    "/specifications":{
       "post":{
         "tags":["Specifications"],
         "summary": "create a specification",
@@ -124,6 +127,34 @@
           }
         }
       }
+    },
+    "/sessions":{
+      "post":{
+        "tags":["Session"],
+        "summary": "Authentication User",
+        "description": "Authentication User",
+        "requestBody":{
+          "content": {
+            "application/json":{
+              "schema":{
+                "type":"object",
+                "properties":{
+                  "email":{
+                    "type":"string"
+                  },
+                  "password":{
+                    "type":"string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses":{
+          "200":{"description":"Success"},
+          "400":{"description": "Email or password incorret!"}
+        }
+      }
     }
   },
   "definitions":{
@@ -136,6 +167,15 @@
         "description":{
           "type": "string"
         }
+      }
+    }
+  },
+  "components":{
+    "securitySchemes":{
+      "bearerAuth":{
+        "type":"http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
