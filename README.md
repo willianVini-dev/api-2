@@ -24,7 +24,7 @@
 
   **regra de negocio RN**
 
-    - O usuário não precisa estar logado no sistema para fazer a listagem de carros 
+  - O usuário não precisa estar logado no sistema para fazer a listagem de carros 
 
 
 
