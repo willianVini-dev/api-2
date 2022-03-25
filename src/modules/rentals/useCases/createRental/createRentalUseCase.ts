@@ -35,7 +35,6 @@ class CreateRentalUseCase{
     }
 
     const compare = this.dateProvider.compareInHours(expected_return_date,this.dateProvider.dateNow());
-    console.log("🚀 ~ file: createRentalUseCase.ts ~ line 38 ~ CreateRentalUseCase ~ execute ~ compare", compare)
     
     if(compare < minHours){
       throw new AppError("Minimum duration time, 24 hours")

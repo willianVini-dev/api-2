@@ -27,19 +27,16 @@ describe("Create cars", ()=>{
   })
 
   it("should not able to create car with license plate exists", async ()=>{
-    expect( async ()=>{
-
-      await createCarsUseCase.execute({
-        name :"name car 1",
-        description:"description car",
-        daily_rate:100,
-        license_plate: "adb-1234",
-        fine_amount:60,
-        brand: "brand",
-        category_id:"category"
-      });
-
-      await createCarsUseCase.execute({
+    await createCarsUseCase.execute({
+      name :"name car 1",
+      description:"description car",
+      daily_rate:100,
+      license_plate: "adb-1234",
+      fine_amount:60,
+      brand: "brand",
+      category_id:"category"
+    });
+    await expect( createCarsUseCase.execute({
         name :"name car 2 ",
         description:"description car",
         daily_rate:100,
@@ -47,9 +44,8 @@ describe("Create cars", ()=>{
         fine_amount:60,
         brand: "brand",
         category_id:"category"
-      });
-
-    }).rejects.toBeInstanceOf(AppError)
+      })
+    ).rejects.toEqual(new AppError("Car already exists"))
   })
 
   it("should not able to new create car with available true by default ", async()=>{

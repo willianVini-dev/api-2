@@ -8,7 +8,6 @@ class ListAvailableCarsController{
 
     const { brand, category_id, name} = request.query;
     const listAvailableCarsUseCase = container.resolve(ListAvailableCarsUseCase);
-    console.log(name)
     const cars = await listAvailableCarsUseCase.execute({
       brand: brand as string, 
       category_id: category_id as string,
