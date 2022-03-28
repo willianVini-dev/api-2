@@ -13,6 +13,10 @@ import { ICarsImageRepository } from "../../modules/cars/repositories/ICarsImage
 import { CarsImageRepository } from "../../modules/cars/infra/typeorm/repositories/CarsImageRepository"
 import { IRentalsRepository } from "../../modules/rentals/repositories/IRentalsRepositorys"
 import { RentalRepository } from "../../modules/rentals/infra/typeorm/repositories/RentalRepository"
+import { IUserTokenRepository } from "../../modules/accounts/repositories/IUserTokenRepository"
+import { UserTokenRepository } from "../../modules/accounts/infra/typeorm/repositories/UserTokenRepository"
+import { IDateProvider } from "./providers/DateProvider/IDateProvider"
+import { DayjsDateProvider } from "./providers/DateProvider/implementations/dayjsDateProvider"
 // interface = ICategoriesRepository
 // Nome pro registro
 container.registerSingleton<ICategoriesRepository>(
@@ -44,4 +48,14 @@ container.registerSingleton<ICarsImageRepository>(
 container.registerSingleton<IRentalsRepository>(
   "RentalsRepository",
   RentalRepository
+)
+
+container.registerSingleton<IUserTokenRepository>(
+  "UserTokenRepository",
+  UserTokenRepository
+)
+
+container.registerSingleton<IDateProvider>(
+  "DayjsProvider",
+  DayjsDateProvider
 )

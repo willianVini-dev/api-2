@@ -23,10 +23,7 @@ export async function routerAuthenticate(request:Request, response:Response, nex
       throw new AppError("User does not exists!",401)
     }
 
-    request.user = {
-      id
-    }
-
+    request.user = { id }
     next()
   } catch (error) {
     throw new AppError("token invalid", 401)
