@@ -9,6 +9,8 @@ interface IUserCreateTokenDTO{
 
 interface IUserTokenRepository{
   create({user_id, expires_date,refresh_token}:IUserCreateTokenDTO):Promise<UserToken>
+  findByUserIdAndRefreshToken(user_id:string, token:string):Promise<UserToken>
+  deleteById(id:string):Promise<void>
 }
 
 export{IUserTokenRepository,IUserCreateTokenDTO}
