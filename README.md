@@ -95,3 +95,16 @@
 
   **regra de negocio RN**
    - O usuario deve estar logado na aplicação
+
+# Recuperar Senha
+
+  **requisitos funcionais RF**
+   - Deve ser possivel o ususario recupera senha informando email
+   - O Usúario deve receber um email com o passo a passo a recuperação da senha
+   - O Usúario deve conseguir inserir nova senha
+
+   **regra de negocio RF**
+    - O usúario precisa informar uma nova senha
+    - o link enviado para a recuperação deve expirar em 3 horas
+
+
