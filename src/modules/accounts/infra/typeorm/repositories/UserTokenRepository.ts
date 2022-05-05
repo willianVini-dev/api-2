@@ -10,6 +10,9 @@ class UserTokenRepository implements IUserTokenRepository{
   constructor(){
     this.repository = getRepository(UserToken)
   }
+  async findByRefreshToken(token: string): Promise<UserToken> {
+    return await this.repository.findOne({refresh_token:token})
+  }
   async deleteById(id: string):Promise<void> {
     await this.repository.delete(id)
   }
