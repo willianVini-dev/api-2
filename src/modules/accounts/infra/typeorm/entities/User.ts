@@ -5,6 +5,7 @@ import {
   Entity, 
   PrimaryColumn } 
   from "typeorm"
+import { Expose } from "class-transformer";
 
 @Entity("users")
 class Users{
@@ -32,6 +33,18 @@ class Users{
 
   @Column()
   avatar:string;
+
+  @Expose({name:"avatar_url"})
+  getAvatarUrl():string{
+    switch(process.env.DISK){
+      case "local":
+        return `${process.env.APP_API_URL}/avatar/${this.avatar}`
+      case "s3":
+        return `${process.env.AWS_BUCKET_URL}/avatar/${this.avatar}`
+      default:
+        return null
+    }
+  }
 
   constructor(){
     if(!this.id){

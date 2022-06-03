@@ -10,7 +10,7 @@ import { routerAuthenticate } from "../middlewares/routerAuthenticate";
 const carsRoutes = Router()
 
 
-const uploadImageCars = multer(uploadConfig.upload("./tmp/cars"))
+const uploadImageCars = multer(uploadConfig)
 const createCarsController = new CreateCarsController();
 const listAvailableCarsController = new ListAvailableCarsController();
 const createCarSpecificationController = new CreateCarSpecificationController()
